@@ -4,12 +4,28 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="283.0" prefWidth="678.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pliki.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
-    </padding>
-   <Label text="Podaj ścieżkę do pliku:" />
-   <TextField id="patch" fx:id="patch" />
-    <Button id="check" fx:id="check" text="sprawdz!" />
-   <Label id="result" fx:id="result" prefHeight="0.0" prefWidth="372.0" />
-</VBox>
+<TilePane prefHeight="300.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.pliki.PlikiController">
+   <children>
+      <HBox snapToPixel="false">
+         <children>
+            <VBox alignment="CENTER" prefHeight="300.0" prefWidth="362.0" spacing="20.0">
+                <padding>
+                    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                </padding>
+               <Label text="Podaj ścieżkę do pliku tekstowego:" />
+               <TextField id="path" fx:id="path" />
+               <HBox prefHeight="32.0" prefWidth="239.0">
+                  <children>
+                     <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="58.0" visible="false" />
+                      <Button id="open" fx:id="open" text="Otworz" />
+                     <Separator orientation="VERTICAL" prefHeight="32.0" prefWidth="98.0" visible="false" />
+                     <Button id="save"  text="Zapisz" />
+                  </children>
+               </HBox>
+               <Label id="result" fx:id="result" prefHeight="40.0" textAlignment="CENTER" />
+            </VBox>
+            <TextArea id="text" prefHeight="294.0" prefWidth="465.0" />
+         </children>
+      </HBox>
+   </children>
+</TilePane>
