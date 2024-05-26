@@ -33,16 +33,15 @@ public class Pliki extends Application {
         text = (TextArea) scene.lookup("#text");
         save = (Button) scene.lookup("#save");
 
-
         open.setOnAction(actionEvent -> {
             plik = new File(path.getText());
             if (plik.exists()) {
                 if (plik.getName().endsWith("txt")) {
                     Date data = new Date(plik.lastModified());
-                    result.setText("Data modyfikacji pliku: " + data.toString() + "\n" + "Rozmiar pliku: " + plik.length() / 1024 + " KB");
+                    result.setText("Data modyfikacji pliku: " + data + "\n" + "Rozmiar pliku: " + plik.length() / 1024 + " KB");
                     FileReader fr = null;
                     String tekst = "";
-                    String linia = "";
+                    String linia;
                     try {
                         fr = new FileReader(path.getText());
                     } catch (Exception e) {
@@ -72,14 +71,14 @@ public class Pliki extends Application {
             if (plik.exists()) {
                 if (plik.getName().endsWith("txt")) {
                     Path path2 = Paths.get(path.getText());
-                    if (text.getText().length() > 0) {
+                    if (!text.getText().isEmpty()) {
                         alert.showAndWait().ifPresent(response -> {
                             if (response == ButtonType.OK) {
                                 try {
                                     Files.write(path2, text.getText().getBytes());
                                     result.setText("Plik został zapisany");
-                                } catch (IOException e) {
-                                    e.printStackTrace();
+                                } catch (Exception e) {
+
                                 }
                             } else {
                                 result.setText("Plik nie został zapisany");
