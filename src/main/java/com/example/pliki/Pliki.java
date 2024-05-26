@@ -55,7 +55,7 @@ public class Pliki extends Application {
                         }
                         text.setText(tekst);
                     } catch (Exception e) {
-
+                        System.out.println("Błąd");
                     }
 
                 } else {
@@ -78,7 +78,7 @@ public class Pliki extends Application {
                                     Files.write(path2, text.getText().getBytes());
                                     result.setText("Plik został zapisany");
                                 } catch (Exception e) {
-
+                                    System.out.println("Błąd");
                                 }
                             } else {
                                 result.setText("Plik nie został zapisany");
